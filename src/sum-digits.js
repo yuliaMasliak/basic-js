@@ -16,7 +16,7 @@ function getSumOfDigits(n) {
   let str = '' + n;
   let arr = str.split('');
   let total = 0;
-  arr.forEach((el) => (totl += el));
+  arr.forEach((el) => (total += el));
   return total;
 }
 
