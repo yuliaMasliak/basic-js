@@ -14,26 +14,22 @@ const { NotImplementedError } = require('../extensions/index.js');
 function deleteDigit(n) {
   let str = n + '';
   let arr = str.split('');
-  let arrCopy = arr;
   let max = 0;
-  for (let i = 0; i < arr.length; i++) {
-    arr.splice(i, 1);
-    const initialValue = 0;
-    let result = arr.reduce(
-      (accumulator, currentValue) => accumulator + currentValue,
-      initialValue
-    );
-    console.log(result);
-    if (result > max) {
-      max = result;
-    }
-    arr.length = 0;
-    arrCopy.forEach((el) => {
-      arr.push(el);
+  for (let index = 0; index < arr.length; index++) {
+    let arrCopy = [...arr];
+    console.log(arrCopy);
+    let total = '';
+    arrCopy.splice(index, 1);
+
+    arrCopy.forEach((elem) => {
+      total += elem;
     });
+    if (+total > max) {
+      max = total;
+    }
   }
-  let res = max.slice(1, max.length);
-  return +res;
+
+  return +max;
 }
 
 module.exports = {
